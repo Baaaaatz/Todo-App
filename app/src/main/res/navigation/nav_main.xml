@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/todo_list">
+
+    <fragment
+        android:id="@+id/todo_list"
+        android:name="com.batzalcancia.todoapp.presentation.TodoListFragment"
+        tools:layout="@layout/fragment_todo_list">
+        <action
+            android:id="@+id/action_todo_list_to_todo_form"
+            app:destination="@id/todo_form" />
+    </fragment>
+    <fragment
+        android:id="@+id/todo_form"
+        android:name="com.batzalcancia.todoapp.presentation.TodoFormFragment"
+        tools:layout="@layout/fragment_todo_form">
+
+
+        <argument
+            android:name="todoItem"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="formType"
+            android:defaultValue="ADD"
+            app:argType="com.batzalcancia.todoapp.domain.FormType" />
+    </fragment>
+
+</navigation>
